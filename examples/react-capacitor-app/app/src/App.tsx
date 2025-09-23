@@ -7,12 +7,12 @@ import { Capacitor } from '@capacitor/core'
 import { AuthContext } from 'react-oauth2-code-pkce'
 
 function App() {
-  const { tokenData, token, logOut, idToken, error, logIn } = useContext(AuthContext)
+  const { token, logOut, error, logIn } = useContext(AuthContext)
 
   // Handle deep link events from Capacitor for OAuth callback
   useEffect(() => {
     if (Capacitor.isNativePlatform()) {
-      const handleAppUrlOpen = (event) => {
+      const handleAppUrlOpen = (event: { url: string | string[] }) => {
         console.log('Deep link received:', event.url)
 
         if (event.url.includes('com.yourapp.oauth://callback')) {
