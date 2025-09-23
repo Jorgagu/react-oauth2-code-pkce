@@ -63,9 +63,9 @@ export async function redirectToLogin(
       if (config.handleAuthorizationUrlCallback) {
         config.handleAuthorizationUrlCallback(loginUrl)
       } else {
-        console.warn(
+        throw new Error(
           'Native login method requires handleAuthorizationUrlCallback callback to be configured. ' +
-            'The login URL will not be handled automatically.'
+            'This callback will receive the authorization URL that should be opened in an external browser.'
         )
       }
       return
