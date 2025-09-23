@@ -60,11 +60,11 @@ export async function redirectToLogin(
 
     // Handle native login method
     if (method === 'native') {
-      if (config.onLoginUrlReady) {
-        config.onLoginUrlReady(loginUrl)
+      if (config.handleAuthorizationUrlCallback) {
+        config.handleAuthorizationUrlCallback(loginUrl)
       } else {
         console.warn(
-          'Native login method requires onLoginUrlReady callback to be configured. ' +
+          'Native login method requires handleAuthorizationUrlCallback callback to be configured. ' +
             'The login URL will not be handled automatically.'
         )
       }

@@ -58,9 +58,9 @@ export function validateConfig(config: TInternalConfig) {
     throw Error("'redirectUri' must be set in the 'AuthConfig' object passed to 'react-oauth2-code-pkce' AuthProvider")
   if (!['session', 'local'].includes(config.storage)) throw Error("'storage' must be one of ('session', 'local')")
   // Validate native login method configuration
-  if (config.loginMethod === 'native' && !config.onLoginUrlReady) {
+  if (config.loginMethod === 'native' && !config.handleAuthorizationUrlCallback) {
     throw Error(
-      "'onLoginUrlReady' callback must be provided when using 'native' loginMethod. " +
+      "'handleAuthorizationUrlCallback' callback must be provided when using 'native' loginMethod. " +
         'This callback will receive the authorization URL that should be opened in an external browser.'
     )
   }

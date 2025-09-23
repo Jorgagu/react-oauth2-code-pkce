@@ -1,8 +1,8 @@
-import { Browser } from '@capacitor/browser'
-import { Capacitor } from '@capacitor/core'
+import {Browser} from '@capacitor/browser'
+import {Capacitor} from '@capacitor/core'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { AuthProvider, type TAuthConfig } from 'react-oauth2-code-pkce'
+import {AuthProvider, type TAuthConfig} from 'react-oauth2-code-pkce'
 import App from './App.tsx'
 import './index.css'
 
@@ -56,7 +56,7 @@ const authConfig: TAuthConfig = {
   loginMethod: isCapacitor() ? 'native' : undefined,
 
   // Handle login URL ready event for Capacitor in-app browser
-  onLoginUrlReady: isCapacitor() ? handleLoginUrlReady : undefined,
+  handleAuthorizationUrlCallback: isCapacitor() ? handleLoginUrlReady : undefined,
 
   // Handle token expiration by prompting user to refresh
   onRefreshTokenExpire: (event) =>
@@ -87,7 +87,7 @@ const authConfig: TAuthConfig = {
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <AuthProvider authConfig={authConfig}>
-      <App />
+      <App/>
     </AuthProvider>
   </React.StrictMode>
 )

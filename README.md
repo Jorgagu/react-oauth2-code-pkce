@@ -150,7 +150,7 @@ type TAuthConfig = {
   // Optional callback function for the native login method. If loginMethod is set to 'native', this function,
   // which become required, will be called with the URL to open in the native browser(browser in app or somewhere else).
   // This is used to open the native login flow on mobile devices.
-  onLoginUrlReady?: (url: string) => void
+  handleAuthorizationUrlCallback?: (url: string) => void
   // Optional callback function for the 'refreshTokenExpired' event.
   // You likely want to display a message saying the user need to log in again. A page refresh is enough.
   onRefreshTokenExpire?: (event: TRefreshTokenExpiredEvent) => void  // default: undefined
