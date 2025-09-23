@@ -1,13 +1,13 @@
-import { useContext, useEffect } from 'react'
+import React, {useContext, useEffect} from 'react'
 import viteLogo from '/vite.svg'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { App as CapacitorApp } from '@capacitor/app'
-import { Capacitor } from '@capacitor/core'
-import { AuthContext } from 'react-oauth2-code-pkce'
+import {App as CapacitorApp} from '@capacitor/app'
+import {Capacitor} from '@capacitor/core'
+import {AuthContext} from 'react-oauth2-code-pkce'
 
 function App() {
-  const { token, logOut, error, logIn } = useContext(AuthContext)
+  const {token, logOut, error, logIn} = useContext(AuthContext as React.Context<any>)
 
   // Handle deep link events from Capacitor for OAuth callback
   useEffect(() => {
@@ -34,15 +34,15 @@ function App() {
       <>
         <div>
           <a href='https://vite.dev' target='_blank' rel='noreferrer'>
-            <img src={viteLogo} className='logo' alt='Vite logo' />
+            <img src={viteLogo} className='logo' alt='Vite logo'/>
           </a>
           <a href='https://react.dev' target='_blank' rel='noreferrer'>
-            <img src={reactLogo} className='logo react' alt='React logo' />
+            <img src={reactLogo} className='logo react' alt='React logo'/>
           </a>
         </div>
         <h1>Vite + React + OAuth2</h1>
         <div className='card'>
-          <div style={{ color: '#ff6b6b', marginBottom: '1rem' }}>
+          <div style={{color: '#ff6b6b', marginBottom: '1rem'}}>
             An error occurred during authentication: {error}
           </div>
           <button onClick={() => logOut()}>Log out</button>
@@ -55,10 +55,10 @@ function App() {
     <>
       <div>
         <a href='https://vite.dev' target='_blank' rel='noreferrer'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
+          <img src={viteLogo} className='logo' alt='Vite logo'/>
         </a>
         <a href='https://react.dev' target='_blank' rel='noreferrer'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
+          <img src={reactLogo} className='logo react' alt='React logo'/>
         </a>
       </div>
 
@@ -82,7 +82,7 @@ function App() {
         {token ? (
           // Authenticated state
           <>
-            <p style={{ fontSize: '1.2rem', color: '#61dafb' }}>Welcome, you are connected! 🎉</p>
+            <p style={{fontSize: '1.2rem', color: '#61dafb'}}>Welcome, you are connected! 🎉</p>
 
             <button onClick={() => logOut()}>Log out</button>
 
@@ -90,8 +90,8 @@ function App() {
               Edit <code>src/App.tsx</code> and save to test HMR
             </p>
 
-            <details style={{ marginTop: '1rem' }}>
-              <summary style={{ cursor: 'pointer', color: '#888' }}>Show authentication token</summary>
+            <details style={{marginTop: '1rem'}}>
+              <summary style={{cursor: 'pointer', color: '#888'}}>Show authentication token</summary>
               <pre
                 style={{
                   maxWidth: '400px',
@@ -113,9 +113,9 @@ function App() {
         ) : (
           // Unauthenticated state
           <>
-            <p style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Please login to continue</p>
+            <p style={{fontSize: '1.1rem', marginBottom: '0.5rem'}}>Please login to continue</p>
 
-            <p style={{ color: '#888', fontSize: '0.9rem' }}>
+            <p style={{color: '#888', fontSize: '0.9rem'}}>
               {Capacitor.isNativePlatform()
                 ? 'Tap the button below to authenticate via in-app browser'
                 : 'Connect with your Microsoft account to access the application'}
