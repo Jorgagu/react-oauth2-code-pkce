@@ -81,7 +81,7 @@ export type TAuthConfig = {
   preLogin?: () => void
   postLogin?: () => void
   loginMethod?: TLoginMethod
-  onLoginUrlReady?: (url: string) => void
+  handleAuthorizationUrlCallback?: (url: string) => void
   onRefreshTokenExpire?: (event: TRefreshTokenExpiredEvent) => void
   decodeToken?: boolean
   autoLogin?: boolean
