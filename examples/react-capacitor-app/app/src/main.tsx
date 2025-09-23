@@ -1,8 +1,8 @@
-import {Browser} from '@capacitor/browser'
-import {Capacitor} from '@capacitor/core'
+import { Browser } from '@capacitor/browser'
+import { Capacitor } from '@capacitor/core'
 import React from 'react'
 import ReactDOM, { createRoot } from 'react-dom/client'
-import {AuthProvider, type TAuthConfig} from 'react-oauth2-code-pkce'
+import { AuthProvider, type TAuthConfig } from 'react-oauth2-code-pkce'
 import App from './App.tsx'
 import './index.css'
 
@@ -84,13 +84,13 @@ const authConfig: TAuthConfig = {
  * Root component that wraps the App with AuthProvider
  * This ensures authentication context is available throughout the app
  */
-const container = document.getElementById('root')
-if (!container) throw new Error('No container found')
-const root = createRoot(container)
-root.render(
+const rootElement = document.getElementById('root')
+if (!rootElement) throw new Error('Root element not found')
+
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <AuthProvider authConfig={authConfig}>
-      <App/>
+      <App />
     </AuthProvider>
   </React.StrictMode>
 )
