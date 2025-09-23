@@ -4,6 +4,13 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+
+  // Ensure all assets are included
+  assetsInclude: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
+
+  // Base path for deployment (change if deploying to subdirectory)
+  base: './',
+
   // Build configuration for static deployment
   build: {
     // Output directory for static files
@@ -19,18 +26,12 @@ export default defineConfig({
       },
     },
 
-    // Ensure all assets are included
-    assetsInclude: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
-
     // Minify for production
     minify: true,
 
     // Generate source maps for debugging (optional)
     sourcemap: false,
   },
-
-  // Base path for deployment (change if deploying to subdirectory)
-  base: './',
 
   // Development server configuration
   server: {
@@ -39,16 +40,11 @@ export default defineConfig({
 
     // Enable CORS for development
     cors: true,
-
-    // History API fallback for SPA routing
-    historyApiFallback: true,
   },
 
   // Preview server configuration (for testing built app)
   preview: {
     port: 4173,
-    // SPA fallback for preview as well
-    historyApiFallback: true,
   },
 
   // Ensure client-only rendering
